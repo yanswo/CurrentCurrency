@@ -20,18 +20,17 @@ function ExchangeRateChart({ baseCurrency, currencyOptions }) {
       );
       const data = await response.json();
 
-      // Filtrar apenas as moedas disponíveis no conversor
       const filteredLabels = currencyOptions;
       const filteredRates = filteredLabels.map(
         (currency) => data.conversion_rates[currency]
       );
 
       setChartData({
-        labels: filteredLabels, // Moedas no eixo X
+        labels: filteredLabels,
         datasets: [
           {
             label: `Taxas de câmbio para ${baseCurrency}`,
-            data: filteredRates, // Taxas no eixo Y
+            data: filteredRates,
             borderColor: "rgba(75,192,192,1)",
             backgroundColor: "rgba(75,192,192,0.2)",
             pointBackgroundColor: "rgba(75,192,192,1)",
